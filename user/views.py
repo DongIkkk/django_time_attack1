@@ -16,7 +16,10 @@ def sign_up(request):
 
         post_user = User()
         post_user.username = username
-        post_user.password = password
+
+        post_user.password = password   # 이렇게 하면 안됨
+        post_user.set_password(password)
+
         post_user.phone_number = phone
         post_user.address = address
         post_user.save()
